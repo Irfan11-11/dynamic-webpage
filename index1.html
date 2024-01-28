@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body style="background-color: rgb(165, 155, 155);">
+    <div class="ms-auto">
+        <div onclick="logout()" class="btn text-light fw-bolder btn-link" style="margin-left: 1300px;">Logout</div>
+    </div>
+
+
+    <div class="mt-5 container">
+        <h1>Welcome <span id="displayUser" class="text-warning">User</span></h1>
+    </div>
+
+
+    <h1 class="mt-5" style="text-align: center; color:#444;">Calculator</h1>
+    
+    <div class=" calc-body mt-5">
+
+        <!--  Calculator Display Screen -- > -->
+        <div class="calc-screen">
+            <div id="calc-typed">
+                <input placeholder="0" id="result" type="text" class="form-control" readonly>
+            </div>
+        </div>
+
+        <!-- Calculator buttons -->
+        <div class="calc-button-row">
+
+
+            <button id="seven" onclick="displaycontent('7')">7</button>
+            <button id="eight"  onclick="displaycontent('8')">8</button>
+            <button id="nine"  onclick="displaycontent('9')">9</button>
+            <button id="mul" class="opt"  onclick="displaycontent('*')">&#215 </button>
+            <button id="four"  onclick="displaycontent('4')">4</button>
+            <button id="five"  onclick="displaycontent('5')">5</button>
+            <button id="six"  onclick="displaycontent('6')">6</button>
+            <button id="sub"  onclick="displaycontent('-')">&#8722 </button>
+            <button id="one"  onclick="displaycontent('1')">1</button>
+            <button id="two"  onclick="displaycontent('2')">2</button>
+            <button id="three"  onclick="displaycontent('3')">3</button>
+            <button id="add" class="opt"  onclick="displaycontent('+')">&#43 </button>
+            <button id="ac" onclick="clearScreen()" class="ac">AC</button>
+            <button id="zero" class="opt"  onclick="displaycontent('0')">0</button>
+            <button id="div" class="opt"  onclick="displaycontent('/')">&#247 </button>
+            <button id="equal" onclick="finalOut()" class="opt" >&#61 </button>
+            <button id="del" onclick="removeItem()">&#9003 </button>
+            <button id="dot"  onclick="displaycontent('.')">.</button>
+            <button id="^"  onclick="displaycontent('^')">^</button>
+            <button id="%"  onclick="displaycontent('%')">%</button>
+
+        </div>
+    </div>
+
+
+</body>
+<script src="./main.js"></script>
+
+<script> 
+if(localStorage.getItem("user")){
+    displayUser.innerHTML=localStorage.getItem("user")
+}else{
+    alert("please Register!!!")
+    window.location="index.html"
+}
+
+
+const logout=()=>{
+    localStorage.removeItem("user")
+    window.location="index.html"
+}
+</script>
+
+</html>
